@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import {
   Typography,
-  IconButton,
   Table,
   TableBody,
   TableHead,
@@ -13,8 +12,11 @@ import {
   TextField
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import SortIcon from "@mui/icons-material/Sort";
-import StraightIcon from '@mui/icons-material/Straight';
+import TextFieldsIcon from '@mui/icons-material/TextFields';
+import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import LinkIcon from '@mui/icons-material/Link';
 import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { ThemeProvider } from "@mui/material/styles";
@@ -183,10 +185,30 @@ export default function TasksPage() {
               <Table size="small">
                 <TableHead>
                   <TableRow>
-                    <TaskTitleCell sx={{ width: "50%" }}>Task Title</TaskTitleCell>
-                    <DateCell>Due Date</DateCell>
-                    <DateCell>Created at</DateCell>
-                    <DateCell>Task ID</DateCell>
+                    <TaskTitleCell sx={{ width: "50%" }}>
+                      <Stack direction="row" spacing={1} alignItems="center">
+                        <SortByAlphaIcon fontSize="small" sx={{ color: "#bdbdbd" }} />
+                        <Typography variant="body2">Task Title</Typography>
+                      </Stack>
+                    </TaskTitleCell>
+                    <DateCell>
+                      <Stack direction="row" spacing={1} alignItems="center" justifyContent="flex-start">
+                        <CalendarTodayOutlinedIcon fontSize="small" sx={{ color: "#bdbdbd" }} />
+                        <Typography variant="body2">Due Date</Typography>
+                      </Stack>
+                   </DateCell>
+                   <DateCell>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <EventNoteIcon fontSize="small" sx={{ color: "#bdbdbd" }} />
+                      <Typography variant="body2">Created at</Typography>
+                    </Stack>
+                   </DateCell>
+                   <DateCell>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                      <LinkIcon fontSize="small" sx={{ color: "#bdbdbd", transform: 'rotate(-45deg)' }} />
+                      <Typography variant="body2">Task ID</Typography>
+                    </Stack>
+                   </DateCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
