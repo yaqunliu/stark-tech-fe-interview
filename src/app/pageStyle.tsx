@@ -88,7 +88,7 @@ export const IconSortButton = styled(IconButton)(() =>({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    background: '#121212',
+  //  background: '#121212',
     width: 34,
     height: 34,
     borderRadius: 2,

@@ -12,7 +12,6 @@ import {
   TextField
 } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import TextFieldsIcon from '@mui/icons-material/TextFields';
 import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import EventNoteIcon from '@mui/icons-material/EventNote';
@@ -27,6 +26,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { Root, Card, Header, NewButton, Toolbar, StyledTableContainer, TaskTitleCell, DateCell, NewTaskRow, theme, IconSortButton } from './pageStyle'
 import SortMenu, { SortField } from "@/components/SortMenu";
 import StatusMenu, { StatusField } from '@/components/StatusMenu';
+import SortTextIcon from '@/components/SortTextIcon'
+import DoneIcon from '@/components/DoneIcon'
 
 type Task = {
   id: number;
@@ -187,7 +188,8 @@ export default function TasksPage() {
                   <TableRow>
                     <TaskTitleCell sx={{ width: "50%" }}>
                       <Stack direction="row" spacing={1} alignItems="center">
-                        <SortByAlphaIcon fontSize="small" sx={{ color: "#bdbdbd" }} />
+                        {/* <SortByAlphaIcon fontSize="small" sx={{ color: "#bdbdbd" }} /> */}
+                        <SortTextIcon sx={{ fontSize: '28px'}}/>
                         <Typography variant="body2">Task Title</Typography>
                       </Stack>
                     </TaskTitleCell>
@@ -223,14 +225,7 @@ export default function TasksPage() {
                       >
                         <Stack direction="row" spacing={1} alignItems="center">
                           {task.completed ? (
-                            <CheckCircleIcon
-                              fontSize="small"
-                              sx={{ color: "green" }}
-                              onClick={(e) => {
-                                e.stopPropagation(); // 阻止触发单元格的 onClick
-                                handleCompleteTask(task.id);
-                              }}
-                            />
+                            <DoneIcon />
                           ) : (
                             <RadioButtonUncheckedIcon
                               fontSize="small"

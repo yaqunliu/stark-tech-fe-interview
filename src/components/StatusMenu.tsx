@@ -9,7 +9,9 @@ import {
 } from "@mui/material";
 
 import { IconSortButton } from '@/app/pageStyle' 
-import ChecklistIcon from '@mui/icons-material/Checklist';
+// import ChecklistIcon from '@mui/icons-material/Checklist';
+
+import ChecklistIcon from '@/components/ChecklistIcon';
 import CheckIcon from "@mui/icons-material/Check";
 import { blue } from '@mui/material/colors';
 
@@ -57,8 +59,8 @@ export default function StatusMenu({ value, onChange }: StatusMenuProps) {
 
   return (
     <>
-      <IconSortButton size="small" onClick={handleOpen}>
-       <ChecklistIcon />
+      <IconSortButton sx={{ background: open ? '#303030' : 'transprent'}} size="small" onClick={handleOpen}>
+       <ChecklistIcon sx={{ fontSize: '32px'}} />
       </IconSortButton>
 
       <Menu
